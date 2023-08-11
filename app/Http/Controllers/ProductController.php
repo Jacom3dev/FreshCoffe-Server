@@ -37,7 +37,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->status = !$product->status;
+        $product->save();
+
+        return [
+            "porduct"=>$product
+        ];
     }
 
     /**
